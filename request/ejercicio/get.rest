@@ -1,0 +1,4 @@
+GET http://localhost:3001/ejercicios/
+
+###
+GET http://localhost:3001/ejercicios/625465c2f086fc08e1629038

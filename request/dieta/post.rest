@@ -1,0 +1,10 @@
+POST http://localhost:3001/dietas/
+Content-Type: application/json
+
+{
+    "nombre": "Prueba dieta",
+    "alimentos": "webos",
+    "infoNutricional": "asdasds",
+    "foto": "https://live.mrf.io/statics/i/ps/www.muycomputer.com/wp-content/uploads/2014/06/LG-webos-smart-tv-MC.jpg?width=1200&enable=upscale",
+    "horario": "fdgwersdf"
+}

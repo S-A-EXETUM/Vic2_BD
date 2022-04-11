@@ -1,0 +1,12 @@
+POST http://localhost:3001/ejercicios/
+Content-Type: application/json
+
+{
+    "pCuerpo": "Brazos",
+    "nombre": "Prueba3",
+    "repeticiones": 5,
+    "video": "Strgaaggagaging",
+    "descripcion": "String",
+    "musculoObj": "asdasdsadsad",
+    "set": 9
+}
