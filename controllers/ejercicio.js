@@ -1,26 +1,30 @@
+// Creado por Diego Canelo 11/04/2022
 const ejercicioRouter = require('express').Router()
 const Ejercicio = require('../models/Ejercicio')
 
+// Traer todos los datos de la bd
 ejercicioRouter.get('/', (request,response)=>{
     Ejercicio.find({}).then(result => {
-        response.json(result);
+        response.json(result)
     }).catch(e => {
-        console.log(e);
-    });
-});
+        console.log(e)
+    })
+})
 
+// Buscar por id
 ejercicioRouter.get('/:id',(request,response) => {
-    let {id} = request.params;
+    let {id} = request.params
     Ejercicio.findById(id).then(result => {
-        response.json(result);
+        response.json(result)
     }).catch(error => {
-        console.log(error);
-    });
-});
+        console.log(error)
+    })
+})
 
+// Crear un objeto en la bd
 ejercicioRouter.post('/', (request,response)=>{
-    let {body} = request;
-    let {pCuerpo,nombre, repeticiones, video, descripcion, musculoObj, set} = body;
+    let {body} = request
+    let {pCuerpo,nombre, repeticiones, video, descripcion, musculoObj, set} = body
     let ejercicio = new Ejercicio({
         pCuerpo,
         nombre,
@@ -29,22 +33,23 @@ ejercicioRouter.post('/', (request,response)=>{
         descripcion,
         musculoObj,
         set
-    });
+    })
 
     ejercicio.save().then(ejercicio => {
-        response.status(201).json(ejercicio);
+        response.status(201).json(ejercicio)
     }).catch(error =>{
-        console.log(error);
+        console.log(error)
     })
 })
 
+// Eliminar un objeto de la bd
 ejercicioRouter.delete('/:id',(request,response)=>{
-    let {id} = request.params;
+    let {id} = request.params
     Ejercicio.findByIdAndDelete(id).then(result => {
-        response.status(204).json(result);
+        response.status(204).json(result)
     }).catch(e => {
-        console.log(e);
-    });
-});
+        console.log(e)
+    })
+})
 
 module.exports = ejercicioRouter
