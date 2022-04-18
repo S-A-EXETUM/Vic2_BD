@@ -19,23 +19,42 @@ dietaRouter.get('/:id',(request,response) => {
 });
 
 dietaRouter.post('/', (request,response)=>{
-    let {body} = request;
-    let {nombre, alimentos, infoNutricional, foto, horario} = body;
+    let {body} = request
+    let {tipoDieta, nombre, alimentos, infoNutricional, foto, horario} = body
     let dieta = new Dieta({
+        tipoDieta,
         nombre,
         alimentos,
         infoNutricional,
         foto,
         horario
-    });
+    })
 
     dieta.save().then(dieta => {
-        response.status(201).json(dieta);
+        response.status(201).json(dieta)
     }).catch(error =>{
-        console.log(error);
+        console.log(error)
     })
 })
-
+dietaRouter.put('/:id', (request,response)=>{
+    let {id} = request.params
+    let {body} = request
+    let {tipoDieta, nombre, alimentos, infoNutricional, foto, horario} = body
+    Dieta.findByIdAndUpdate(id,{
+        tipoDieta,
+        nombre,
+        alimentos,
+        infoNutricional,
+        foto,
+        horario
+    })
+    .then(dieta => {
+        response.status(202).json(dieta)
+    }).catch(error =>{
+        console.log(error)
+        response.status(400).end()
+    })
+})
 dietaRouter.delete('/:id',(request,response)=>{
     let {id} = request.params;
     Dieta.findByIdAndDelete(id).then(result => {

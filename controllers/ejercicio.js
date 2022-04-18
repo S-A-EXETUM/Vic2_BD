@@ -37,7 +37,26 @@ ejercicioRouter.post('/', (request,response)=>{
         console.log(error);
     })
 })
-
+ejercicioRouter.put('/:id', (request,response)=>{
+    let {id} = request.params
+    let {body} = request
+    let {pCuerpo, nombre, repeticiones, video, descripcion, musculoObj, set} = body
+    Ejercicio.findByIdAndUpdate(id,{
+        pCuerpo,
+        nombre,
+        repeticiones,
+        video,
+        descripcion,
+        musculoObj,
+        set
+    })
+    .then(ejercicio => {
+        response.status(202).json(ejercicio)
+    }).catch(error =>{
+        console.log(error)
+        response.status(400).end()
+    })
+})
 ejercicioRouter.delete('/:id',(request,response)=>{
     let {id} = request.params;
     Ejercicio.findByIdAndDelete(id).then(result => {

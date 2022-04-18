@@ -2,11 +2,11 @@ POST http://localhost:3001/ejercicios/
 Content-Type: application/json
 
 {
-    "pCuerpo": "Brazos",
-    "nombre": "Prueba3",
-    "repeticiones": 5,
-    "video": "Strgaaggagaging",
-    "descripcion": "String",
-    "musculoObj": "asdasdsadsad",
-    "set": 9
+    "pCuerpo": "Cardio",
+    "nombre": "Adelgazar y quemar grasa",
+    "repeticiones": 6,
+    "video": "https://www.youtube.com/embed/uSD5IxmEQdI",
+    "descripcion": "Esta rutina de ejercicios os puede ayudar a adelgazar, quemar grasa o bajar de peso. Pero recuerda que para perder grasa también es importante llevar una alimentación enfocada a eso. Pero si lo hacéis bien os funcionará esta super rutina de ejercicios para perder grasa o adelgazar. Tiene una duración de 15 minutos y es bastante intensa para gasta muchas calorías, así que, a darlo todo!",
+    "musculoObj": "Abdomen, piernas",
+    "set": 3
 }
