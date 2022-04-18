@@ -2,6 +2,7 @@ POST http://localhost:3001/dietas/
 Content-Type: application/json
 
 {
+    "tipoDieta": "Definir",
     "nombre": "Prueba dieta",
     "alimentos": "webos",
     "infoNutricional": "asdasds",
