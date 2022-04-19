@@ -39,8 +39,10 @@ ejercicioRouter.post('/', (request,response)=>{
         response.status(201).json(ejercicio)
     }).catch(error =>{
         console.log(error)
+        response.status(400).end()
     })
 })
+
 ejercicioRouter.put('/:id', (request,response)=>{
     let {id} = request.params
     let {body} = request
@@ -61,11 +63,23 @@ ejercicioRouter.put('/:id', (request,response)=>{
         response.status(400).end()
     })
 })
+
+// Eliminar un objeto de la bd
 ejercicioRouter.delete('/:id',(request,response)=>{
     let {id} = request.params
     Ejercicio.findByIdAndDelete(id).then(result => {
         response.status(204).json(result)
     }).catch(e => {
+        console.log(e)
+    })
+})
+
+// Añadido por Matthew 19/04/2022
+ejercicioRouter.get('/tipo/:tipo', (request,response)=>{
+    let {tipo} = request.params
+    Ejercicio.find({pCuerpo: tipo}).then(result =>{
+        response.json(result)
+    }).catch(e =>{
         console.log(e)
     })
 })

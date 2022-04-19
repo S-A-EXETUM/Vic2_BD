@@ -1,0 +1,12 @@
+PUT http://143a-186-21-192-20.ngrok.io/ejercicios/625daf2e28007789565b9dba
+Content-Type: application/json
+
+{
+    "pCuerpo": "Crossfit",
+    "nombre": "PruebaUpdate",
+    "repeticiones": 5,
+    "video": "https://www.youtube.com/embed/BIB02FsDg8U",
+    "descripcion": "String",
+    "musculoObj": "asdasdsadsad",
+    "set": 9
+}

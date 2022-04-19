@@ -6,6 +6,7 @@ const cors = require('cors')
 // Importación de rutas de ejercicios y dietas
 const ejercicioRouter = require('./controllers/ejercicio')
 const dietaRouter = require('./controllers/dieta')
+const favoritoRouter = require('./controllers/favorito')
 
 const app = express()
 
@@ -15,6 +16,7 @@ app.use(express.json())
 // Utilización de rutas
 app.use('/ejercicios', ejercicioRouter)
 app.use('/dietas', dietaRouter)
+app.use('/favoritos', favoritoRouter)
 
 app.listen(3001, ()=>{
     console.log('Servidor corriendo en el puerto: 3001')

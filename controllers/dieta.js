@@ -40,6 +40,7 @@ dietaRouter.post('/', (request,response)=>{
         console.log(error)
     })
 })
+
 dietaRouter.put('/:id', (request,response)=>{
     let {id} = request.params
     let {body} = request
@@ -59,11 +60,24 @@ dietaRouter.put('/:id', (request,response)=>{
         response.status(400).end()
     })
 })
+//"625dc5e69b921342f203f174"
+
+// Eliminar un objeto de la bd
 dietaRouter.delete('/:id',(request,response)=>{
     let {id} = request.params
     Dieta.findByIdAndDelete(id).then(result => {
         response.status(204).json(result)
     }).catch(e => {
+        console.log(e)
+    })
+})
+
+// Añadido por Matthew 19/04/2022
+dietaRouter.get('/tipo/:tipo', (request,response)=>{
+    let {tipo} = request.params
+    Dieta.find({tipoDieta: tipo}).then(result =>{
+        response.json(result)
+    }).catch(e =>{
         console.log(e)
     })
 })
