@@ -2,3 +2,10 @@ GET http://localhost:3001/ejercicios/
 
 ###
 GET http://localhost:3001/ejercicios/625465c2f086fc08e1629038
+
+###
+GET http://localhost:3001/ejercicios/tipo/Pecho
+
+
+###
+GET http://8457-186-21-192-20.ngrok.io/ejercicios/nombre/Adelgazar

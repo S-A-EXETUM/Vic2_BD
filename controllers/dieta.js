@@ -81,5 +81,14 @@ dietaRouter.get('/tipo/:tipo', (request,response)=>{
         console.log(e)
     })
 })
+dietaRouter.get('/nombre/:texto', (request,response)=>{
+    let {texto} = request.params
+    texto = new RegExp(texto, 'i')
+    Dieta.find({nombre: texto }).then(result =>{
+        response.json(result)
+    }).catch(e =>{
+        console.log(e)
+    })
+})
 
 module.exports = dietaRouter

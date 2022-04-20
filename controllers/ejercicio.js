@@ -84,4 +84,15 @@ ejercicioRouter.get('/tipo/:tipo', (request,response)=>{
     })
 })
 
+// Añadido por Constanza 20/04/2022
+ejercicioRouter.get('/nombre/:texto', (request,response)=>{
+    let {texto} = request.params
+    texto = new RegExp(texto, 'i')
+    Ejercicio.find({nombre: texto }).then(result =>{
+        response.json(result)
+    }).catch(e =>{
+        console.log(e)
+    })
+})
+
 module.exports = ejercicioRouter
