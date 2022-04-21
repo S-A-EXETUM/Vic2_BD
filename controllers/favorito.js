@@ -57,7 +57,9 @@ favoritoRouter.post('/', (request,response)=>{
                 }
 
                 if(usuario && rutina && dieta){
-                    response.status(406)
+                    response.status(406).json({
+                        error: "Existe en favorito"
+                    })
                 } else {
                     favorito.save().then(favorito => {
                         response.status(201).json(favorito)

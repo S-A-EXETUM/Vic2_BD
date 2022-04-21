@@ -1,6 +1,7 @@
 // Creado por Diego Canelo 11/04/2022
 const ejercicioRouter = require('express').Router()
 const Ejercicio = require('../models/Ejercicio')
+const Favorito = require('../models/Favorito')
 
 // Traer todos los datos de la bd
 ejercicioRouter.get('/', (request,response)=>{
@@ -65,10 +66,16 @@ ejercicioRouter.put('/:id', (request,response)=>{
 })
 
 // Eliminar un objeto de la bd
+// Modificado por Matthew 21/04/2022
 ejercicioRouter.delete('/:id',(request,response)=>{
     let {id} = request.params
+
     Ejercicio.findByIdAndDelete(id).then(result => {
-        response.status(204).json(result)
+        Favorito.remove({id_rutina: id}).then(result => {
+            response.status(204).json(result)
+        }).catch(e => {
+            console.log(e)
+        })
     }).catch(e => {
         console.log(e)
     })

@@ -1,6 +1,7 @@
 // Creado por Matthew Rocco 11/04/2022
 const dietaRouter = require('express').Router()
 const Dieta = require('../models/Dieta')
+const Favorito = require('../models/Favorito')
 
 // Traer todos los datos de la bd
 dietaRouter.get('/', (request,response)=>{
@@ -66,7 +67,11 @@ dietaRouter.put('/:id', (request,response)=>{
 dietaRouter.delete('/:id',(request,response)=>{
     let {id} = request.params
     Dieta.findByIdAndDelete(id).then(result => {
-        response.status(204).json(result)
+        Favorito.remove({id_dieta: id}).then(result => {
+            response.status(204).json(result)
+        }).catch(e => {
+            console.log(e)
+        })
     }).catch(e => {
         console.log(e)
     })
